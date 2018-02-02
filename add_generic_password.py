@@ -161,14 +161,18 @@ if os.isatty(0):
 password = sys.stdin.read()
 
 if len(password) == 0:
-  print "no password piped in? assuming this is unexpected, exiting!"
+  print "no password piped in? assuming this is unexpected, exiting"
   sys.exit(2)
 
-# sys.argv[0] is the python filename
-kc_name = None # if you want a specific keychain, change this I guess :)
-service = sys.argv[1]
-username = sys.argv[2] # I think this is account from security add-generic-password
+# sys.argv[0] is the python filename [?]
 
-set_generic_password(kc_name, service, username, password) # not sure how to set other stuff like comment, label, app path (I think label defaults to service)
-print("created it " + service + " " + username)
+kc_name = None # if you want a specific keychain, change this I guess?
+service = sys.argv[1]
+username = sys.argv[2] # I think this is account from security add-generic-password [?]
+
+set_generic_password(kc_name, service, username, password) 
+# not sure how to set other stuff like comment, label, app path (I think label defaults to service)
+# not sure if specifying "-T" style app paths is even helpful though :| ? https://apple.stackexchange.com/questions/270070/keychain-application-still-requesting-access-with-entry-created-via-security-a
+
+print("created new one " + service + " " + username)
 

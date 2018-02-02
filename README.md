@@ -4,4 +4,11 @@ OS X has no ability to programmatically add to the keychain without leaking it t
 
 Example usage:
 
-echo "my_password" | python add_generic_password.py account_name service_name # creates new password
+$ echo -n "my_password" | python add_generic_password.py account_name service_name # creates new password
+or
+$ cat my_password_file | python add_generic_password.py account_name service_name # creates new password
+
+
+Attribution:
+  lifted from https://github.com/grapefrukt/taxman (MIT license, thanks!)
+
